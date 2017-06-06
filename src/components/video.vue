@@ -4,29 +4,41 @@
       <video id="video" ref="video" controls :src="videoUrl"></video>
     </div>
     <br/>
-    <a @click.prevent="toggleVideo(true)">START</a>
-    <a @click.prevent="toggleVideo(false)">STOP</a>
+    <a @click.prevent="playVideo(true)">START</a>
+    <a @click.prevent="playVideo(false)">STOP</a>
     <a @click.prevent="showOverlay">SHOW</a>
-    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<span ref="currentTime"></span>
+    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<span ref="currentTime">0</span>
     <pre>{{ $data }}</pre>
-    <overlay/>
+    <overlay :data="'yes'"/>
   </div>
 </template>
 
 <script>
+  /*eslint-disable*/
   import cuePoints from '@/assets/data/cuePoints'
   import { eventBus } from '@/eventBus'
   import overlay from '@/components/overlay'
-
+  /**FLOW**:
+    GET currentTime of video in seconds,
+    check if currentSec equals given second,
+      if true
+        show overlay
+          on click overlay video lock = false after 1 sec,
+        videolock = true
+      else
+        continue playing
+        videolock = false
+  */
   export default {
     name: 'video',
     components: { overlay },
     data () {
       return {
         videoUrl: 'http://nooncreation.com/video/fysio-isl.webm',
-        cuePoints,
         playing: false,
-        videoLock: false
+        videoLock: false,
+        currentTime: null,
+        cuePoints
       }
     },
 
@@ -41,53 +53,45 @@
         eventBus.$emit('showOverlay', true)
       },
 
+      playVideo (state) {
+        const video = this.$refs.video
+        if (state) {
+          video.play()
+          this.getCurrentVideoTime(video)
+        } else {
+          video.pause()
+        }
+      },
+
       checkIfFrameEquals (frame) {
+        this.$refs.currentTime.innerHTML = frameFloor
+        // const getSec = (item.sec * 10)
         this.cuePoints.map(item => {
-          const getSec = (item.sec * 10)
-          if (frame >= getSec && this.playing === false) {
-            this.toggleVideo(false)
+          if (frame === item.sec && this.videLock === false) {
+            this.playVideo(false)
+            this.$set(this, 'videoLock', true)
+            console.log('EQUALS NOW')
           }
         })
       },
 
-      getCurrentVideoTime () {
-        const video = this.$refs.video
-        video.volume = 0.1
+      getCurrentVideoTime (video) {
         setInterval(e => {
-          if (!video.paused) {
-            const frame = Math.floor(video.currentTime * 10)
-            this.$refs.currentTime.innerHTML = frame
-            this.checkIfFrameEquals(frame)
-          }
-        }, 1)
+          const frame = Math.floor(video.currentTime)
+          console.log(frame)
+          this.checkIfFrameEquals(frame)
+        }, 1000)
+        // video.addEventListener('timeupdate', e => {
+        //   console.log(Math.floor(video.currentTime))
+        // })
+
+        // this.checkIfFrameEquals(frame)
       }
     },
 
     mounted () {
-      /*eslint-disable*/
-      console.log(this.cuePoints)
-      this.getCurrentVideoTime()
+      this.$refs.video.volume = 0
+      // console.log(this.cuePoints)
     }
   }
 </script>
-
-<style lang="stylus" scoped>
-  #videoContainer
-    width: 1270px
-    height: 720px
-    margin:auto
-    // position: absolute
-    // transform: scale(1.0) translate(-50%,-50%)
-    // top:50%
-    // left:50%
-    // overflow:hidden !important
-    #video
-      height: 100%
-      width: 100%
-      overflow: hidden
-
-  .zoom
-    transform: scale(1.2) !important
-    transition: 8000ms all !important
-
-</style>
