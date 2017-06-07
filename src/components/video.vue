@@ -3,13 +3,13 @@
     <div id="videoContainer">
       <video id="video" ref="video" controls :src="videoUrl"></video>
     </div>
-    <br/>
+    <!-- <br/>
     <a @click.prevent="playVideo(true)">START</a>
     <a @click.prevent="playVideo(false)">STOP</a>
-    <a @click.prevent="showOverlay">SHOW</a>
-    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<span ref="currentTime">0</span>
+    <a @click.prevent="showOverlay">SHOW</a> -->
+    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<span>{{ currentTime }}</span>
     <pre>{{ $data }}</pre>
-    <overlay :data="'yes'"/>
+    <overlay :data="currentCuePoint"/>
   </div>
 </template>
 
@@ -18,6 +18,7 @@
   import cuePoints from '@/assets/data/cuePoints'
   import { eventBus } from '@/eventBus'
   import overlay from '@/components/overlay'
+
   /**FLOW**:
     GET currentTime of video in seconds,
     check if currentSec equals given second,
@@ -29,6 +30,7 @@
         continue playing
         videolock = false
   */
+
   export default {
     name: 'video',
     components: { overlay },
@@ -38,12 +40,14 @@
         playing: false,
         videoLock: false,
         currentTime: null,
+        currentCuePoint: {},
         cuePoints
       }
     },
 
     methods: {
       toggleVideo (state) {
+        console.log('TOGGLE')
         const video = this.$refs.video
         this.$set(this, 'playing', state)
         state ? video.play() : video.pause()
@@ -51,47 +55,44 @@
 
       showOverlay () {
         eventBus.$emit('showOverlay', true)
+        this.$set(this, 'videoLock', true)
       },
 
-      playVideo (state) {
-        const video = this.$refs.video
-        if (state) {
-          video.play()
-          this.getCurrentVideoTime(video)
-        } else {
-          video.pause()
-        }
-      },
-
-      checkIfFrameEquals (frame) {
-        this.$refs.currentTime.innerHTML = frameFloor
-        // const getSec = (item.sec * 10)
+      checkIfFrameEquals (currentTime, video) {
         this.cuePoints.map(item => {
-          if (frame === item.sec && this.videLock === false) {
-            this.playVideo(false)
-            this.$set(this, 'videoLock', true)
-            console.log('EQUALS NOW')
+          // console.log(item.sec + 0.5)
+          if (currentTime >= item.sec && currentTime <= (item.sec + 0.5)) {
+            eventBus.$emit('pause')
+            this.$set(this, 'currentCuePoint', item)
+            this.showOverlay()
           }
         })
       },
 
-      getCurrentVideoTime (video) {
-        setInterval(e => {
-          const frame = Math.floor(video.currentTime)
-          console.log(frame)
-          this.checkIfFrameEquals(frame)
-        }, 1000)
-        // video.addEventListener('timeupdate', e => {
-        //   console.log(Math.floor(video.currentTime))
-        // })
-
-        // this.checkIfFrameEquals(frame)
-      }
+      getCurrentVideoTime (video) {}
     },
 
     mounted () {
-      this.$refs.video.volume = 0
-      // console.log(this.cuePoints)
+      const video = this.$refs.video
+      video.volume = 0
+      video.ontimeupdate = e => {
+        this.$set(this, 'playing', true)
+        this.$set(this, 'currentTime', Math.floor(e.target.currentTime))
+        // pass currentTime and whole video object to frame checker
+        this.checkIfFrameEquals(e.target.currentTime, video)
+      }
+    },
+
+    created () {
+      // global events to play/pause the video, and lock the video if an overlay got triggered to prevent stuttering when playing agia
+      eventBus.$on('play', play => { this.toggleVideo(true) })
+      eventBus.$on('pause', pause => { this.toggleVideo(false) })
+      eventBus.$on('lock', lock => {
+        this.$set(this, 'videoLock', true)
+        setTimeout(e => {
+          this.$set(this, 'videoLock', false)
+        }, 1000, false)
+      })
     }
   }
 </script>
