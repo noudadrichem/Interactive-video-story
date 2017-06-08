@@ -55,13 +55,13 @@
 
       showOverlay () {
         eventBus.$emit('showOverlay', true)
-        this.$set(this, 'videoLock', true)
       },
 
       checkIfFrameEquals (currentTime, video) {
         this.cuePoints.map(item => {
-          // console.log(item.sec + 0.5)
-          if (currentTime >= item.sec && currentTime <= (item.sec + 0.5)) {
+          console.log('currentTime', currentTime)
+          if (Math.floor(currentTime) === item.sec && this.videoLock === false) {
+            console.log('EQUALS');
             eventBus.$emit('pause')
             this.$set(this, 'currentCuePoint', item)
             this.showOverlay()
@@ -78,13 +78,11 @@
       video.ontimeupdate = e => {
         this.$set(this, 'playing', true)
         this.$set(this, 'currentTime', Math.floor(e.target.currentTime))
-        // pass currentTime and whole video object to frame checker
         this.checkIfFrameEquals(e.target.currentTime, video)
       }
     },
 
     created () {
-      // global events to play/pause the video, and lock the video if an overlay got triggered to prevent stuttering when playing agia
       eventBus.$on('play', play => { this.toggleVideo(true) })
       eventBus.$on('pause', pause => { this.toggleVideo(false) })
       eventBus.$on('lock', lock => {
