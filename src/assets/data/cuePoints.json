@@ -1,14 +1,74 @@
 [
   {
-    "sec": 3,
+    "sec": 2,
     "content": {
-      "btnText": "Ga verder"
+      "btnText": "Ga verder",
+      "question": "Wat zijn dingen die goed werken in deze Interactive storyline?",
+      "answers": [
+        {
+          "answer": "De stil werkt beter dan de vorige",
+          "feedback": "Ik heb nu gekozen om het te doen per seconde. Per seconde kijkt hij nu gemiddeld 2/4 keer en als hij dan gelijk staat aan de aanggegeven seconde dan zet ik er een lock op zodat hij niet haperd."
+        },
+        {
+          "answer": "Er moet nog een timer ingebouwd worden inderdaad...",
+          "feedback": "Ik heb nu gekozen om het te doen per seconde. Per seconde kijkt hij nu gemiddeld 2/4 keer en als hij dan gelijk staat aan de aanggegeven seconde dan zet ik er een lock op zodat hij niet haperd."
+        },
+        {
+          "answer": "Feedback, ja daar ben ik mee bezig nu?",
+          "feedback": "Ik heb nu gekozen om het te doen per seconde. Per seconde kijkt hij nu gemiddeld 2/4 keer en als hij dan gelijk staat aan de aanggegeven seconde dan zet ik er een lock op zodat hij niet haperd."
+        },
+        {
+          "answer": "Puntentelling, mm ik zal er naar kijken",
+          "feedback": "Ik heb nu gekozen om het te doen per seconde. Per seconde kijkt hij nu gemiddeld 2/4 keer en als hij dan gelijk staat aan de aanggegeven seconde dan zet ik er een lock op zodat hij niet haperd."
+        }]
+    }
+  },
+  {
+    "sec": 4,
+    "content": {
+      "btnText": "Ga verder",
+      "question": "Wat zijn dingen die goed werken in deze Interactive storyline?",
+      "answers": [
+        {
+          "answer": "De stil werkt beter dan de vorige",
+          "feedback": "Ik heb nu gekozen om het te doen per seconde. Per seconde kijkt hij nu gemiddeld 2/4 keer en als hij dan gelijk staat aan de aanggegeven seconde dan zet ik er een lock op zodat hij niet haperd."
+        },
+        {
+          "answer": "Er moet nog een timer ingebouwd worden inderdaad...",
+          "feedback": "Ik heb nu gekozen om het te doen per seconde. Per seconde kijkt hij nu gemiddeld 2/4 keer en als hij dan gelijk staat aan de aanggegeven seconde dan zet ik er een lock op zodat hij niet haperd."
+        },
+        {
+          "answer": "Feedback, ja daar ben ik mee bezig nu?",
+          "feedback": "Ik heb nu gekozen om het te doen per seconde. Per seconde kijkt hij nu gemiddeld 2/4 keer en als hij dan gelijk staat aan de aanggegeven seconde dan zet ik er een lock op zodat hij niet haperd."
+        },
+        {
+          "answer": "Puntentelling, mm ik zal er naar kijken",
+          "feedback": "Ik heb nu gekozen om het te doen per seconde. Per seconde kijkt hij nu gemiddeld 2/4 keer en als hij dan gelijk staat aan de aanggegeven seconde dan zet ik er een lock op zodat hij niet haperd."
+        }]
     }
   },
   {
     "sec": 6,
     "content": {
-      "btnText": "Ga verder"
+      "btnText": "Ga verder",
+      "question": "Wat zijn dingen die goed werken in deze Interactive storyline?",
+      "answers": [
+        {
+          "answer": "De stil werkt beter dan de vorige",
+          "feedback": "Ik heb nu gekozen om het te doen per seconde. Per seconde kijkt hij nu gemiddeld 2/4 keer en als hij dan gelijk staat aan de aanggegeven seconde dan zet ik er een lock op zodat hij niet haperd."
+        },
+        {
+          "answer": "Er moet nog een timer ingebouwd worden inderdaad...",
+          "feedback": "Ik heb nu gekozen om het te doen per seconde. Per seconde kijkt hij nu gemiddeld 2/4 keer en als hij dan gelijk staat aan de aanggegeven seconde dan zet ik er een lock op zodat hij niet haperd."
+        },
+        {
+          "answer": "Feedback, ja daar ben ik mee bezig nu?",
+          "feedback": "Ik heb nu gekozen om het te doen per seconde. Per seconde kijkt hij nu gemiddeld 2/4 keer en als hij dan gelijk staat aan de aanggegeven seconde dan zet ik er een lock op zodat hij niet haperd."
+        },
+        {
+          "answer": "Puntentelling, mm ik zal er naar kijken",
+          "feedback": "Ik heb nu gekozen om het te doen per seconde. Per seconde kijkt hij nu gemiddeld 2/4 keer en als hij dan gelijk staat aan de aanggegeven seconde dan zet ik er een lock op zodat hij niet haperd."
+        }]
     }
   }
 ]

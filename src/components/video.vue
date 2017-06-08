@@ -1,14 +1,11 @@
 <template>
-  <div>
+  <div id="mainContainer">
     <div id="videoContainer">
       <video id="video" ref="video" controls :src="videoUrl"></video>
     </div>
-    <!-- <br/>
-    <a @click.prevent="playVideo(true)">START</a>
-    <a @click.prevent="playVideo(false)">STOP</a>
-    <a @click.prevent="showOverlay">SHOW</a> -->
-    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<span>{{ currentTime }}</span>
-    <pre>{{ $data }}</pre>
+    <br/>
+    <a @click.prevent="toggleVideo(true)">START</a>
+    <a @click.prevent="toggleVideo(false)">STOP</a>
     <overlay :data="currentCuePoint"/>
   </div>
 </template>
@@ -47,21 +44,16 @@
 
     methods: {
       toggleVideo (state) {
-        console.log('TOGGLE')
         const video = this.$refs.video
         this.$set(this, 'playing', state)
         state ? video.play() : video.pause()
       },
 
-      showOverlay () {
-        eventBus.$emit('showOverlay', true)
-      },
+      showOverlay () { eventBus.$emit('showOverlay', true) },
 
       checkIfFrameEquals (currentTime, video) {
         this.cuePoints.map(item => {
-          console.log('currentTime', currentTime)
           if (Math.floor(currentTime) === item.sec && this.videoLock === false) {
-            console.log('EQUALS');
             eventBus.$emit('pause')
             this.$set(this, 'currentCuePoint', item)
             this.showOverlay()
@@ -69,17 +61,19 @@
         })
       },
 
-      getCurrentVideoTime (video) {}
+      getCurrentVideoTime () {
+        const video = this.$refs.video
+        video.volume = 0
+        video.ontimeupdate = e => {
+          this.$set(this, 'playing', true)
+          this.$set(this, 'currentTime', Math.floor(e.target.currentTime))
+          this.checkIfFrameEquals(e.target.currentTime, video)
+        }
+      }
     },
 
     mounted () {
-      const video = this.$refs.video
-      video.volume = 0
-      video.ontimeupdate = e => {
-        this.$set(this, 'playing', true)
-        this.$set(this, 'currentTime', Math.floor(e.target.currentTime))
-        this.checkIfFrameEquals(e.target.currentTime, video)
-      }
+      this.getCurrentVideoTime()
     },
 
     created () {
