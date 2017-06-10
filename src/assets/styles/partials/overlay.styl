@@ -4,15 +4,18 @@
   top:0
   right:0
   z-index:1000
+  box-sizing:border-box
   height:100%
   // background:rgba(0,0,0,.9)
-  background:rgba(255,255,255,.95)
-  box-shadow:0 12px 14px rgba(0,0,0,.5)
+  background:rgba(255,255,255,1)
+  box-shadow:0 0px 25px 7px rgba(0,0,0,0.2)
+  text-align:center
   *
     box-sizing:border-box
   .question
     width:90%
     margin:auto
+    position:relative
     h1
       text-align:center
       color:grey
@@ -20,3 +23,31 @@
       .btn
         width:100%
         margin:10px 0
+        &.disabled
+          cursor:not-allowed
+          pointer-events:none
+          opacity:.5
+
+    .feedback
+      text-align:left !important
+      width:100%
+      height:100%
+      position:absolute
+      top:100px
+      left:0
+      background:rgba(255,255,255,1)
+
+    .timer
+      timerHeight = 100px
+      margin: 50px auto 0
+      width:timerHeight
+      height:timerHeight
+      line-height:timerHeight
+      border-radius:50%
+      border:1px solid darkblue
+      .seconds
+        font-size:2em
+        color:grey
+
+    .goOn
+      margin:30px auto 0

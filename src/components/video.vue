@@ -3,10 +3,9 @@
     <div id="videoContainer">
       <video id="video" ref="video" controls :src="videoUrl"></video>
     </div>
-    <br/>
-    <a @click.prevent="toggleVideo(true)">START</a>
-    <a @click.prevent="toggleVideo(false)">STOP</a>
     <overlay :data="currentCuePoint"/>
+
+    <!-- <pre>{{ $data }}</pre> -->
   </div>
 </template>
 
@@ -49,11 +48,14 @@
         state ? video.play() : video.pause()
       },
 
+      resetAll () { eventBus.$emit('reset') },
+
       showOverlay () { eventBus.$emit('showOverlay', true) },
 
       checkIfFrameEquals (currentTime, video) {
         this.cuePoints.map(item => {
           if (Math.floor(currentTime) === item.sec && this.videoLock === false) {
+            this.$set(this, 'videoLock', true)
             eventBus.$emit('pause')
             this.$set(this, 'currentCuePoint', item)
             this.showOverlay()
@@ -69,7 +71,7 @@
           this.$set(this, 'currentTime', Math.floor(e.target.currentTime))
           this.checkIfFrameEquals(e.target.currentTime, video)
         }
-      }
+      },
     },
 
     mounted () {

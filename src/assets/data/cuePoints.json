@@ -7,19 +7,23 @@
       "answers": [
         {
           "answer": "De stil werkt beter dan de vorige",
-          "feedback": "Ik heb nu gekozen om het te doen per seconde. Per seconde kijkt hij nu gemiddeld 2/4 keer en als hij dan gelijk staat aan de aanggegeven seconde dan zet ik er een lock op zodat hij niet haperd."
+          "feedback": "Dit is feedback 1 lorem ipsum dolor sit Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+          "status": false
         },
         {
           "answer": "Er moet nog een timer ingebouwd worden inderdaad...",
-          "feedback": "Ik heb nu gekozen om het te doen per seconde. Per seconde kijkt hij nu gemiddeld 2/4 keer en als hij dan gelijk staat aan de aanggegeven seconde dan zet ik er een lock op zodat hij niet haperd."
+          "feedback": "Dit is feedback 2 lorem ipsum dolor sit Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+          "status": false
         },
         {
-          "answer": "Feedback, ja daar ben ik mee bezig nu?",
-          "feedback": "Ik heb nu gekozen om het te doen per seconde. Per seconde kijkt hij nu gemiddeld 2/4 keer en als hij dan gelijk staat aan de aanggegeven seconde dan zet ik er een lock op zodat hij niet haperd."
+          "answer": "Feedback, ja daar ben ik mee bezig :D",
+          "feedback": "Dit is feedback 3 lorem ipsum dolor sit Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+          "status": true
         },
         {
           "answer": "Puntentelling, mm ik zal er naar kijken",
-          "feedback": "Ik heb nu gekozen om het te doen per seconde. Per seconde kijkt hij nu gemiddeld 2/4 keer en als hij dan gelijk staat aan de aanggegeven seconde dan zet ik er een lock op zodat hij niet haperd."
+          "feedback": "Dit is feedback 4 lorem ipsum dolor sit Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+          "status": false
         }]
     }
   },
@@ -31,19 +35,23 @@
       "answers": [
         {
           "answer": "De stil werkt beter dan de vorige",
-          "feedback": "Ik heb nu gekozen om het te doen per seconde. Per seconde kijkt hij nu gemiddeld 2/4 keer en als hij dan gelijk staat aan de aanggegeven seconde dan zet ik er een lock op zodat hij niet haperd."
+          "feedback": "Dit is feedback 1 lorem ipsum dolor sit Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+          "status": false
         },
         {
           "answer": "Er moet nog een timer ingebouwd worden inderdaad...",
-          "feedback": "Ik heb nu gekozen om het te doen per seconde. Per seconde kijkt hij nu gemiddeld 2/4 keer en als hij dan gelijk staat aan de aanggegeven seconde dan zet ik er een lock op zodat hij niet haperd."
+          "feedback": "Dit is feedback 2 lorem ipsum dolor sit Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+          "status": false
         },
         {
-          "answer": "Feedback, ja daar ben ik mee bezig nu?",
-          "feedback": "Ik heb nu gekozen om het te doen per seconde. Per seconde kijkt hij nu gemiddeld 2/4 keer en als hij dan gelijk staat aan de aanggegeven seconde dan zet ik er een lock op zodat hij niet haperd."
+          "answer": "Feedback, ja daar ben ik mee bezig :D",
+          "feedback": "Dit is feedback 3 lorem ipsum dolor sit Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+          "status": false
         },
         {
           "answer": "Puntentelling, mm ik zal er naar kijken",
-          "feedback": "Ik heb nu gekozen om het te doen per seconde. Per seconde kijkt hij nu gemiddeld 2/4 keer en als hij dan gelijk staat aan de aanggegeven seconde dan zet ik er een lock op zodat hij niet haperd."
+          "feedback": "Dit is feedback 4 lorem ipsum dolor sit Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+          "status": true
         }]
     }
   },
@@ -55,19 +63,23 @@
       "answers": [
         {
           "answer": "De stil werkt beter dan de vorige",
-          "feedback": "Ik heb nu gekozen om het te doen per seconde. Per seconde kijkt hij nu gemiddeld 2/4 keer en als hij dan gelijk staat aan de aanggegeven seconde dan zet ik er een lock op zodat hij niet haperd."
+          "feedback": "Dit is feedback 1 lorem ipsum dolor sit Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+          "status": false
         },
         {
           "answer": "Er moet nog een timer ingebouwd worden inderdaad...",
-          "feedback": "Ik heb nu gekozen om het te doen per seconde. Per seconde kijkt hij nu gemiddeld 2/4 keer en als hij dan gelijk staat aan de aanggegeven seconde dan zet ik er een lock op zodat hij niet haperd."
+          "feedback": "Dit is feedback 2 lorem ipsum dolor sit Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+          "status": true
         },
         {
-          "answer": "Feedback, ja daar ben ik mee bezig nu?",
-          "feedback": "Ik heb nu gekozen om het te doen per seconde. Per seconde kijkt hij nu gemiddeld 2/4 keer en als hij dan gelijk staat aan de aanggegeven seconde dan zet ik er een lock op zodat hij niet haperd."
+          "answer": "Feedback, ja daar ben ik mee bezig :D",
+          "feedback": "Dit is feedback 3 lorem ipsum dolor sit Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+          "status": false
         },
         {
           "answer": "Puntentelling, mm ik zal er naar kijken",
-          "feedback": "Ik heb nu gekozen om het te doen per seconde. Per seconde kijkt hij nu gemiddeld 2/4 keer en als hij dan gelijk staat aan de aanggegeven seconde dan zet ik er een lock op zodat hij niet haperd."
+          "feedback": "Dit is feedback 4 lorem ipsum dolor sit Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+          "status": false
         }]
     }
   }
