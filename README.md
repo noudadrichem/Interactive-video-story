@@ -2,6 +2,17 @@
 
 > Figuring out a proper way to get currentVideo time, and stop the video. While even working with slow internet.
 
+## To Do
+* Points counter
+* External API for cue point & data
+* Retrieve data from backen
+* Login screen / personal scores (end game goals)
+* CMS (end game goals)
+
+## Feature ideas
+* Vimeo/Youtube video's
+* Rebuild it as a building platform (end game)
+
 ## Build Setup
 
 ```bash
