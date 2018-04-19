@@ -10,8 +10,8 @@
 
         <div class="feedback" v-show="showFeedback">
           {{ feedback }}
-          <a v-if="status" @click="continueVideo" class="btn block">Ga verder</a>
-          <a v-else @click="toggleFeedback(false)" class="btn block inverted">Hide feedback</a>
+          <a v-if="status" @click.prevent="continueVideo('+')" class="btn block">Ga verder</a>
+          <a v-else @click.prevent="toggleFeedback(false)" class="btn block inverted">Hide feedback</a>
         </div>
 
         <div class="timer">
@@ -19,7 +19,7 @@
         </div>
 
         <div v-if="toLate" class="goOn">
-          <a @click.prevent="continueVideo" class="btn">{{ data.content.btnText }}</a>
+          <a @click.prevent="continueVideo('-')" class="btn">{{ data.content.btnText }}</a>
         </div>
 
       </div>
@@ -45,7 +45,11 @@
       }
     },
     methods: {
-      continueVideo () {
+      editPoints (status) { console.log('aaa'); eventBus.$emit('editPoints', status) },
+
+      continueVideo (plusorminus) {
+        this.editPoints(plusorminus)
+        console.log('yes')
         this.$set(this, 'show', false)
         this.$set(this, 'showFeedback', false)
         this.resetAll()
@@ -84,7 +88,7 @@
         this.$set(this, 'toLate', false)
       }
     },
-    mounted () {},
+
     created () {
       eventBus.$on('showOverlay', show => {
         this.$set(this, 'show', show)

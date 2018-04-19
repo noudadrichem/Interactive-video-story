@@ -1,11 +1,18 @@
 <template>
   <div id="mainContainer">
+
+    <div class="points">
+      <h1>{{ points }}</h1>
+    </div>
+
     <div id="videoContainer">
       <video id="video" ref="video" controls :src="videoUrl"></video>
     </div>
+
+    <div id="videobalk" ref="videobalk"></div>
+
     <overlay :data="currentCuePoint"/>
 
-    <!-- <pre>{{ $data }}</pre> -->
   </div>
 </template>
 
@@ -15,29 +22,19 @@
   import { eventBus } from '@/eventBus'
   import overlay from '@/components/overlay'
 
-  /**FLOW**:
-    GET currentTime of video in seconds,
-    check if currentSec equals given second,
-      if true
-        show overlay
-          on click overlay video lock = false after 1 sec,
-        videolock = true
-      else
-        continue playing
-        videolock = false
-  */
-
   export default {
     name: 'video',
     components: { overlay },
     data () {
       return {
-        videoUrl: 'http://nooncreation.com/video/fysio-isl.webm',
+        // videoUrl: 'http://nooncreation.com/video/fysio-isl.webm',
+        videoUrl: 'http://nooncreation.com/video/raet-video-main.webm',
         playing: false,
         videoLock: false,
         currentTime: null,
         currentCuePoint: {},
-        cuePoints
+        cuePoints,
+        points: 10
       }
     },
 
@@ -66,6 +63,7 @@
       getCurrentVideoTime () {
         const video = this.$refs.video
         video.volume = 0
+        video.play()
         video.ontimeupdate = e => {
           this.$set(this, 'playing', true)
           this.$set(this, 'currentTime', Math.floor(e.target.currentTime))
@@ -81,6 +79,13 @@
     created () {
       eventBus.$on('play', play => { this.toggleVideo(true) })
       eventBus.$on('pause', pause => { this.toggleVideo(false) })
+      eventBus.$on('editPoints', status => {
+        if (status === '+') {
+          this.points++
+        } else if (status === '-') {
+          this.points--
+        }
+      })
       eventBus.$on('lock', lock => {
         this.$set(this, 'videoLock', true)
         setTimeout(e => {
