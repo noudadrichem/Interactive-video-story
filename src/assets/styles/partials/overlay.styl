@@ -12,18 +12,23 @@
   text-align:center
   *
     box-sizing:border-box
+
   .question
     width:90%
     margin:auto
     position:relative
+    display: flex;
+    flex-direction: column;
+
     h1
       text-align:center
       color:grey
       font-weight:300
+
     .answers
       .btn
         width:100%
-        margin:10px 0
+        margin:4px 0
         &.disabled
           cursor:not-allowed
           pointer-events:none
@@ -39,8 +44,11 @@
       background:rgba(255,255,255,1)
 
     .timer
-      timerHeight = 100px
-      margin: 50px auto 0
+      timerHeight = 80px
+      // margin: 50px auto 0
+      display: inline-flex;
+      justify-content: center;
+      align-self: center;
       width:timerHeight
       height:timerHeight
       line-height:timerHeight
@@ -50,5 +58,5 @@
         font-size:2em
         color:grey
 
-    .goOn
+    .go-on
       margin:30px auto 0
